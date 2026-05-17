@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tip Calculator</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="app">
+  <div class="header">
+    <h1>Tip<span>.</span><br>Calculator</h1>
+    <p>// split the bill, not the friendship</p>
+  </div>
+  <div class="card">
+    <label class="field-label">Bill amount</label>
+    <div class="bill-input-wrap">
+      <span class="currency">$</span>
+      <input type="number" id="bill" min="0" step="0.01" placeholder="0.00" oninput="calc()" />
+    </div>
+    <div class="section">
+      <div class="tip-label-row">
+        <span class="field-label" style="margin-bottom:0;">Tip percentage</span>
+        <span class="tip-pct-display" id="tip-label">18%</span>
+      </div>
+      <div class="quick-btns">
+        <button class="quick-btn" data-v="10" onclick="setPct(10)">10%</button>
+        <button class="quick-btn active" data-v="18" onclick="setPct(18)">18%</button>
+        <button class="quick-btn" data-v="20" onclick="setPct(20)">20%</button>
+        <button class="quick-btn" data-v="25" onclick="setPct(25)">25%</button>
+        <button class="quick-btn" data-v="30" onclick="setPct(30)">30%</button>
+      </div>
+      <input type="range" id="tip-range" min="0" max="50" value="18" step="1" oninput="setRange(this.value)" />
+    </div>
+    <div class="section">
+      <label class="field-label">Split between</label>
+      <div class="split-row">
+        <button class="split-btn" onclick="changePpl(-1)">−</button>
+        <div style="text-align:center;">
+          <div class="split-count" id="ppl-display">1</div>
+          <div class="split-sub" id="ppl-label">person</div>
+        </div>
+        <button class="split-btn" onclick="changePpl(1)">+</button>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="results">
+      <div class="result-box">
+        <div class="result-label">Tip</div>
+        <div class="result-value" id="tip-amt">$0.00</div>
+      </div>
+      <div class="result-box">
+        <div class="result-label">Total</div>
+        <div class="result-value" id="total-amt">$0.00</div>
+      </div>
+      <div class="result-box highlight">
+        <div class="result-label">Per person</div>
+        <div class="result-value" id="per-person">$0.00</div>
+      </div>
+    </div>
+    <button class="reset-btn" onclick="resetAll()">reset</button>
+  </div>
+  <div class="footer">built with html · css · js</div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
